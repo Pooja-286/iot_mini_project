@@ -1,115 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ExhibitGuard — Security Command Center</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ExhibitGuard - Login</title>
+
 <style>
-:root{--bg:#f4f7fb;--paper:#fff;--ink:#17253c;--muted:#7a899e;--line:#e7edf5;--nav:#17253b;--teal:#0aa99a;--tealbg:#e5f8f5;--coral:#f45b69;--coralbg:#fff0f1;--amber:#f2a93b;--amberbg:#fff7e8;--blue:#4d78f2;--bluebg:#edf2ff;--violet:#8b67e8;--shadow:0 8px 28px #243b5a0b}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink)}button{font:inherit}
-.app{min-height:100vh;display:grid;grid-template-columns:238px minmax(0,1fr)}
-.sidebar{background:var(--nav);color:#dce6f4;padding:25px 16px;display:flex;flex-direction:column;gap:28px}
-.brand{display:flex;gap:11px;align-items:center;padding:0 8px}.brandmark{width:38px;height:38px;border-radius:12px;background:linear-gradient(140deg,#24d3c1,#4d78f2);display:grid;place-items:center;color:#fff;font-size:22px;font-weight:800;box-shadow:0 6px 16px #20c5b344}.brandname{font:800 17px Manrope,sans-serif;letter-spacing:-.5px;color:#fff}.brandname span{color:#5ee3d2}.brand-sub{font-size:10px;color:#8fa4c0;margin-top:3px;letter-spacing:.5px}
-.navlabel{font-size:10px;letter-spacing:1.4px;color:#7187a5;font-weight:700;padding:0 12px;margin-bottom:8px}.nav{display:grid;gap:5px}.nav a{display:flex;align-items:center;gap:12px;color:#a9bbd3;text-decoration:none;padding:12px;border-radius:10px;font-size:12px;font-weight:600}.nav a.active{background:#263c58;color:#fff;box-shadow:inset 3px 0 #45d9c5}.nav a .navicon{font-size:17px;width:21px;text-align:center}.nav a .navbadge{margin-left:auto;font-size:9px;background:#f45b69;color:#fff;border-radius:6px;padding:3px 6px}.side-bottom{margin-top:auto;background:#20334e;border:1px solid #2b4565;border-radius:13px;padding:14px}.side-bottom small{color:#8ea6c5;font-size:10px}.side-bottom b{display:block;font-size:12px;margin:7px 0;color:#f3f7fc}.side-progress{height:5px;border-radius:9px;background:#344b68;margin-top:11px;overflow:hidden}.side-progress div{height:100%;width:78%;background:linear-gradient(90deg,#2bd4be,#7b92ff)}
-main{min-width:0;padding:26px 30px 18px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:25px}.crumb{font-size:11px;color:var(--muted);margin-bottom:5px}.page-title{font:800 25px Manrope,sans-serif;letter-spacing:-.8px}.subtitle{font-size:12px;color:var(--muted);margin-top:5px}.top-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.connection{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:11px;font-weight:700;color:#52637a}.live-dot{width:8px;height:8px;background:#20bc87;border-radius:50%;box-shadow:0 0 0 4px #20bc871a}.avatar{height:35px;width:35px;border-radius:11px;background:linear-gradient(135deg,#ffb96d,#f45b69);display:grid;place-items:center;color:white;font-weight:800;font-size:12px}
-.alert-banner{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:15px;background:linear-gradient(105deg,#fff0f1,#fff8f5);border:1px solid #ffdadd;margin-bottom:18px}.alert-symbol{height:42px;width:42px;flex:none;border-radius:13px;background:#ffe0e3;color:var(--coral);display:grid;place-items:center;font-size:22px}.alert-copy{flex:1;min-width:0}.alert-copy strong{font:800 13px Manrope,sans-serif;color:#bd3545;letter-spacing:.25px}.alert-copy p{font-size:11px;color:#8f5860;margin-top:4px}.alert-time{font-size:10px;color:#a77b80;white-space:nowrap}.pill{display:inline-flex;align-items:center;gap:5px;border-radius:7px;padding:6px 9px;font-size:9px;font-weight:800;letter-spacing:.5px;white-space:nowrap}.pill.red{background:#ffe0e3;color:#d94253}.pill.green{background:#e2f8ef;color:#16845f}.pill.amber{background:#fff1d5;color:#a96d0d}.pill.blue{background:#e7edff;color:#4265d5}
-.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:18px}.metric{background:var(--paper);border:1px solid var(--line);border-radius:15px;padding:17px 18px;box-shadow:var(--shadow);position:relative;overflow:hidden}.metric:after{content:"";position:absolute;right:-20px;top:-22px;width:80px;height:80px;border-radius:50%;background:var(--soft);opacity:.65}.metric-top{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1}.metric-label{font-size:10px;color:#8391a5;font-weight:800;letter-spacing:.7px}.metric-icon{height:33px;width:33px;display:grid;place-items:center;background:var(--soft);color:var(--accent);border-radius:10px;font-size:17px}.metric-value{font:800 29px Manrope,sans-serif;letter-spacing:-1px;margin-top:15px;position:relative;z-index:1}.metric-value small{font:600 12px 'DM Sans';color:#8a98aa;letter-spacing:0}.metric-foot{font-size:10px;color:#8492a6;margin-top:6px;position:relative;z-index:1}.metric-foot b{color:var(--accent)}
-.content-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(330px,.8fr);gap:17px}.column{display:grid;gap:17px;align-content:start}.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:19px;box-shadow:var(--shadow);min-width:0}.card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:16px}.card-title{font:800 14px Manrope,sans-serif;letter-spacing:-.25px}.card-sub{font-size:10px;color:#8a98aa;margin-top:5px}.tiny-tag{font-size:9px;font-weight:800;color:#687b93;background:#f2f5f9;border-radius:7px;padding:7px 9px;white-space:nowrap}
-.heat-layout{display:grid;grid-template-columns:minmax(0,1fr) 160px;gap:16px;align-items:center}.radar{height:280px;position:relative;border-radius:13px;overflow:hidden;border:1px solid #dbe6f2;background-color:#f8fbff;background-image:linear-gradient(#dce7f466 1px,transparent 1px),linear-gradient(90deg,#dce7f466 1px,transparent 1px);background-size:24px 24px}.radar:before{content:"";position:absolute;width:255px;height:255px;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,#f45b69a6 0%,#ff8f6588 13%,#f7c65a6c 30%,#54d7b544 53%,#8ee7d21c 70%,transparent 72%)}.ring{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border:1px solid #aabbd2a8;border-radius:50%}.ring.one{width:70px;height:70px}.ring.two{width:140px;height:140px}.ring.three{width:215px;height:215px}.sensor-pin{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);height:35px;width:35px;border-radius:11px;background:linear-gradient(140deg,#24cbbb,#4d78f2);display:grid;place-items:center;color:#fff;font-size:18px;box-shadow:0 5px 15px #3b87c955;z-index:3;border:3px solid white}.person{position:absolute;left:calc(50% + 32px);top:calc(50% - 42px);transform:translate(-50%,-50%);font-size:25px;z-index:4;filter:drop-shadow(0 2px 3px #8d4b5266);transition:left .35s,top .35s,opacity .2s}.radar-label{position:absolute;left:10px;top:10px;font-size:9px;font-weight:800;letter-spacing:.4px;color:#526782;background:#ffffffdb;padding:6px 8px;border:1px solid #e0e8f1;border-radius:6px}.radar-caption{position:absolute;bottom:9px;left:10px;font-size:9px;color:#71839b}.heat-legend{display:flex;gap:11px;flex-wrap:wrap;margin-top:12px}.heat-legend span{display:flex;gap:5px;align-items:center;font-size:9px;color:#75859b}.heat-legend i{height:8px;width:8px;border-radius:3px;display:inline-block}.distance-panel{padding:13px;background:#f8fafc;border:1px solid #e9eff6;border-radius:12px;margin-bottom:10px}.distance-label{font-size:9px;font-weight:800;color:#8190a4;letter-spacing:.7px}.distance-number{font:800 28px Manrope,sans-serif;letter-spacing:-1px;margin-top:7px}.distance-number small{font:600 11px 'DM Sans';color:#8492a6;letter-spacing:0}.distance-track{height:7px;border-radius:8px;background:#e4ebf3;overflow:hidden;margin-top:10px}.distance-track div{height:100%;width:0;background:linear-gradient(90deg,#20b98b,#f5b846,#f45b69);border-radius:8px;transition:width .3s}.zone-row{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid #edf1f6;font-size:10px;color:#8290a3}.zone-row:last-child{border:0}.zone-row b{font-size:10px;color:#34445a}
-.hardware{display:grid;gap:9px}.hardware-row{display:flex;align-items:center;gap:11px;padding:11px 12px;border:1px solid #e9eff6;border-radius:11px;background:#fcfdff}.hardware-icon{width:35px;height:35px;display:grid;place-items:center;border-radius:10px;font-size:16px;flex:none}.hardware-icon.teal{background:#e3f8f4;color:#089c8d}.hardware-icon.blue{background:#eaf0ff;color:#4d78f2}.hardware-icon.violet{background:#f0eaff;color:#8b67e8}.hardware-icon.amber{background:#fff4df;color:#d28b1d}.hardware-copy{flex:1;min-width:0}.hardware-copy b{font-size:11px;display:block}.hardware-copy small{font-size:9px;color:#8a98aa;display:block;margin-top:4px;white-space:normal}.hardware-state{font-size:8px;font-weight:800;letter-spacing:.4px;color:#16845f;background:#e2f8ef;padding:6px 7px;border-radius:6px;white-space:nowrap}.hardware-state.off{color:#d94253;background:#ffe7e9}.hardware-state.wait{color:#a96d0d;background:#fff1d5}
-.events{display:grid}.event{display:grid;grid-template-columns:31px minmax(0,1fr) auto;gap:10px;align-items:start;padding:11px 0;border-bottom:1px solid #edf1f6}.event:last-child{border:0;padding-bottom:0}.event-icon{height:29px;width:29px;display:grid;place-items:center;border-radius:9px;font-size:13px}.event-icon.red{background:#fff0f1;color:#e74c5e}.event-icon.amber{background:#fff6e5;color:#d28b1d}.event-icon.green{background:#e6f8f1;color:#129d70}.event-copy b{font-size:10px;display:block}.event-copy small{font-size:9px;color:#8b99ab;display:block;margin-top:4px}.event-time{font-size:9px;color:#a0adbd;white-space:nowrap}
-.model-score{display:flex;align-items:center;gap:14px}.score-ring{height:73px;width:73px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--violet) 0deg,#a88df5 var(--score,0deg),#edf0f6 var(--score,0deg));position:relative;flex:none}.score-ring:after{content:"";position:absolute;inset:7px;background:#fff;border-radius:50%}.score-ring b{position:relative;z-index:1;font:800 15px Manrope}.score-copy{flex:1}.score-copy b{font:800 13px Manrope;display:block}.score-copy small{display:block;color:#8795a7;font-size:10px;line-height:1.5;margin-top:5px}.model-bottom{display:flex;justify-content:space-between;margin-top:16px;padding-top:13px;border-top:1px solid #edf1f6;font-size:10px;color:#8a98aa}.model-bottom b{color:#4d5f77}
-.footer{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:20px 2px 0;font-size:9px;color:#9aa7b7}
-@media(max-width:1150px){.app{grid-template-columns:205px minmax(0,1fr)}main{padding:22px}.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.content-grid{grid-template-columns:1fr}.column.right{grid-template-columns:1fr 1fr;align-items:start}.column.right .card:first-child{grid-column:1/-1}}
-@media(max-width:760px){.app{display:block}.sidebar{display:none}main{padding:17px}.topbar{align-items:flex-start;flex-direction:column}.top-actions{width:100%;justify-content:space-between}.page-title{font-size:22px}.metrics{gap:9px}.metric{padding:13px}.metric-value{font-size:24px}.alert-banner{align-items:flex-start}.alert-time{display:none}.heat-layout{grid-template-columns:1fr}.distance-side{display:grid;grid-template-columns:1fr 1fr;gap:8px}.distance-panel{grid-column:1/-1;margin:0}.zone-row{padding:7px 0}.column.right{grid-template-columns:1fr}.column.right .card:first-child{grid-column:auto}}
-@media(max-width:420px){.metrics{grid-template-columns:1fr 1fr}.metric-label{font-size:9px}.metric-value{font-size:21px}.card{padding:14px}.radar{height:245px}}
+*{box-sizing:border-box}
+body{
+  margin:0;min-height:100vh;display:grid;place-items:center;
+  padding:20px;background:#f4f7fb;color:#17253c;
+  font-family:Arial,sans-serif
+}
+.login-card{
+  width:100%;max-width:400px;padding:35px;background:white;
+  border:1px solid #e7edf5;border-radius:18px;
+  box-shadow:0 15px 45px #17253c12
+}
+.brand{font-size:27px;font-weight:800;margin-bottom:8px}
+.brand span{color:#0aa99a}
+.subtitle{font-size:11px;color:#7a899e;letter-spacing:1.5px}
+h2{font-size:24px;margin:28px 0 8px}
+.intro{font-size:13px;color:#7a899e;line-height:1.6;margin-bottom:25px}
+label{display:block;font-size:13px;font-weight:bold;margin:17px 0 7px}
+input{
+  width:100%;padding:13px;border:1px solid #dce5ef;
+  border-radius:8px;font-size:14px;outline:none
+}
+input:focus{border-color:#0aa99a}
+button{
+  width:100%;padding:13px;margin-top:22px;border:0;
+  border-radius:8px;background:#0aa99a;color:white;
+  font-size:14px;font-weight:bold;cursor:pointer
+}
+button:hover{background:#078f83}
+button:disabled{opacity:.6;cursor:wait}
+#message{font-size:12px;line-height:1.5;color:#d94253}
+.note{font-size:11px;color:#8492a6;margin-top:24px;text-align:center}
 </style>
 </head>
+
 <body>
-<div class="app">
-<aside class="sidebar">
-  <div class="brand"><div class="brandmark">⌁</div><div><div class="brandname">Exhibit<span>Guard</span></div><div class="brand-sub">SECURITY PLATFORM</div></div></div>
-  <div><div class="navlabel">MONITORING</div><nav class="nav">
-    <a class="active" href="#overview"><span class="navicon">◫</span>Command Center</a>
-    <a href="#heatmap"><span class="navicon">◎</span>Proximity Heat Map</a>
-    <a href="#hardware"><span class="navicon">⌘</span>Hardware Status</a>
-    <a href="#events"><span class="navicon">◷</span>Security Events <span class="navbadge" id="navAlert">1</span></a>
-  </nav></div>
-  <div><div class="navlabel">INTELLIGENCE</div><nav class="nav">
-    <a href="#model"><span class="navicon">✳</span>ML Assessment</a>
-    <a href="#thresholds"><span class="navicon">⚙</span>Alert Thresholds</a>
-  </nav></div>
-  <div class="side-bottom"><small>EXHIBIT STATUS</small><b id="sideStatus">Monitoring active</b><small>Proximity boundary · 16 cm</small><div class="side-progress"><div></div></div></div>
-</aside>
+<div class="login-card">
+  <div class="brand">Exhibit<span>Guard</span></div>
+  <div class="subtitle">SECURITY PLATFORM</div>
 
-<main id="overview">
-  <header class="topbar"><div><div class="crumb">Workspace&nbsp; / &nbsp;Monitoring&nbsp; / &nbsp;<b>Command Center</b></div><div class="page-title">Security Command Center</div><div class="subtitle">A live overview of your protected exhibit and connected IoT hardware.</div></div>
-    <div class="top-actions"><div class="connection"><span class="live-dot" id="dbDot"></span><span id="dbState">Connecting to Firebase</span></div><div class="connection" id="lastUpdated">◷ &nbsp; Waiting for data</div><div class="avatar">EG</div></div>
-  </header>
+  <h2>Welcome back</h2>
+  <p class="intro">Sign in to access your security command center.</p>
 
-  <section class="alert-banner"><div class="alert-symbol" id="bannerIcon">!</div><div class="alert-copy"><strong id="statusTitle">WAITING FOR SENSOR DATA</strong><p id="statusDescription">This command center updates when your Colab monitor writes to Firebase.</p></div><div class="alert-time" id="eventTime">LIVE MONITOR</div><span class="pill amber" id="statusBadge">CONNECTING</span></section>
+  <form id="loginForm">
+    <label for="email">Email address</label>
+    <input id="email" type="email" placeholder="Enter email"
+           autocomplete="username" required>
 
-  <section class="metrics">
-    <article class="metric" style="--soft:#fff0f1;--accent:#e94d60"><div class="metric-top"><span class="metric-label">LIVE DISTANCE</span><span class="metric-icon">↔</span></div><div class="metric-value"><span id="distance">—</span> <small>cm</small></div><div class="metric-foot"><b>16 cm</b> critical boundary</div></article>
-    <article class="metric" style="--soft:#fff5e2;--accent:#d9941e"><div class="metric-top"><span class="metric-label">CLOSE APPROACHES</span><span class="metric-icon">♧</span></div><div class="metric-value"><span id="approaches">0</span> <small>/ 30 sec</small></div><div class="metric-foot"><b>3 entries</b> trigger a warning</div></article>
-    <article class="metric" style="--soft:#eaf0ff;--accent:#4d78f2"><div class="metric-top"><span class="metric-label">MOVEMENT SPEED</span><span class="metric-icon">➤</span></div><div class="metric-value"><span id="speed">—</span> <small>cm/s</small></div><div class="metric-foot">Estimated from sensor timestamps</div></article>
-    <article class="metric" style="--soft:#e5f8f4;--accent:#079e8f"><div class="metric-top"><span class="metric-label">TIME NEAR EXHIBIT</span><span class="metric-icon">◷</span></div><div class="metric-value"><span id="timeNear">—</span> <small>sec</small></div><div class="metric-foot">Distance below 50 cm threshold</div></article>
-  </section>
+    <label for="password">Password</label>
+    <input id="password" type="password" placeholder="Enter password"
+           autocomplete="current-password" required>
 
-  <section class="content-grid">
-    <div class="column">
-      <article class="card" id="heatmap">
-        <div class="card-head"><div><div class="card-title">Proximity heat map</div><div class="card-sub">Distance-based zone visualization around the sensor</div></div><span class="tiny-tag">LIVE SENSOR FIELD</span></div>
-        <div class="heat-layout">
-          <div><div class="radar" id="radar"><div class="radar-label" id="radarState">WAITING FOR READING</div><div class="ring one"></div><div class="ring two"></div><div class="ring three"></div><div class="sensor-pin" title="Ultrasonic sensor">⌁</div><div class="person" id="human" style="opacity:0">♟</div><div class="radar-caption">Illustrative field · not a camera feed</div></div>
-            <div class="heat-legend"><span><i style="background:#f45b69"></i>Critical ≤16 cm</span><span><i style="background:#f2b544"></i>Near 17–50 cm</span><span><i style="background:#20bc87"></i>Clear &gt;50 cm</span></div>
-          </div>
-          <div class="distance-side">
-            <div class="distance-panel"><div class="distance-label">MEASURED DISTANCE</div><div class="distance-number"><span id="distance2">—</span><small> cm</small></div><div class="distance-track"><div id="distanceMeter"></div></div></div>
-            <div class="zone-row"><span>Closest reading</span><b><span id="minDistance">—</span> cm</b></div>
-            <div class="zone-row"><span>Current zone</span><b id="zone">Unknown</b></div>
-            <div class="zone-row"><span>ML classification</span><b id="prediction">—</b></div>
-          </div>
-        </div>
-      </article>
+    <button id="loginButton" type="submit">Sign In</button>
+    <p id="message" role="status"></p>
+  </form>
 
-      <article class="card" id="events"><div class="card-head"><div><div class="card-title">Security event stream</div><div class="card-sub">Recent changes reported by the monitoring process</div></div><span class="tiny-tag">LATEST EVENTS</span></div><div class="events" id="activity"><div class="event"><div class="event-icon green">✓</div><div class="event-copy"><b>Dashboard initialized</b><small>Waiting for the first sensor event</small></div><div class="event-time">NOW</div></div></div></article>
-    </div>
-
-    <div class="column right">
-      <article class="card" id="hardware"><div class="card-head"><div><div class="card-title">Hardware connectivity</div><div class="card-sub">Connection inferred from fresh database telemetry</div></div><span class="pill green" id="hwOverall">CHECKING</span></div>
-        <div class="hardware">
-          <div class="hardware-row"><div class="hardware-icon teal">⌁</div><div class="hardware-copy"><b>ESP32 controller</b><small id="espDetail">Waiting for sensor telemetry</small></div><span class="hardware-state wait" id="espState">PENDING</span></div>
-          <div class="hardware-row"><div class="hardware-icon blue">◎</div><div class="hardware-copy"><b>Ultrasonic sensor</b><small id="sensorDetail">Distance reading not yet confirmed</small></div><span class="hardware-state wait" id="sensorState">PENDING</span></div>
-          <div class="hardware-row"><div class="hardware-icon violet">☁</div><div class="hardware-copy"><b>Firebase Realtime Database</b><small id="firebaseDetail">Opening realtime connection</small></div><span class="hardware-state wait" id="firebaseState">PENDING</span></div>
-          <div class="hardware-row"><div class="hardware-icon amber">▣</div><div class="hardware-copy"><b>Colab monitoring process</b><small id="colabDetail">Waiting for processed status data</small></div><span class="hardware-state wait" id="colabState">PENDING</span></div>
-        </div><p id="firebaseError" style="display:none;color:#d94253;font-size:10px;line-height:1.5;margin-top:12px"></p>
-      </article>
-
-      <article class="card" id="model"><div class="card-head"><div><div class="card-title">ML model assessment</div><div class="card-sub">Classifier confidence for the suspicious class</div></div><span class="tiny-tag">MODEL OUTPUT</span></div>
-        <div class="model-score"><div class="score-ring" id="scoreRing"><b id="probText">—</b></div><div class="score-copy"><b id="modelHeading">Awaiting prediction</b><small id="modelDescription">The probability is supplied by your trained model and updates with new readings.</small></div></div>
-        <div class="model-bottom"><span>Prediction label</span><b id="modelLabel">—</b></div>
-        <div class="model-bottom" style="margin-top:9px;padding-top:9px"><span>Safety rules</span><b>Take priority over ML</b></div>
-      </article>
-
-      <article class="card" id="thresholds"><div class="card-head"><div><div class="card-title">Active security rules</div><div class="card-sub">Thresholds currently configured in Colab</div></div><span class="tiny-tag">RULE SET</span></div>
-        <div class="hardware">
-          <div class="hardware-row"><div class="hardware-icon" style="background:#fff0f1;color:#e94d60">!</div><div class="hardware-copy"><b>Critical proximity</b><small>Distance at or below 16 cm</small></div><span class="pill red">≤ 16 cm</span></div>
-          <div class="hardware-row"><div class="hardware-icon" style="background:#fff5e2;color:#d9941e">↻</div><div class="hardware-copy"><b>Repeated approaches</b><small>3 entries into critical zone in 30 seconds</small></div><span class="pill amber">3 TIMES</span></div>
-          <div class="hardware-row"><div class="hardware-icon" style="background:#e5f8f4;color:#079e8f">✓</div><div class="hardware-copy"><b>Normal distance</b><small>More than 50 cm from sensor</small></div><span class="pill green">&gt; 50 cm</span></div>
-        </div>
-      </article>
-    </div>
-  </section>
-  <footer class="footer"><span>ExhibitGuard Security Platform · Realtime telemetry</span><span>Connected to <b>/exhibit/security/status</b> · <span id="footerTime">No update yet</span></span></footer>
-</main>
+  <div class="note">Secure access · ExhibitGuard Monitoring</div>
 </div>
+
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
 <script>
-/* Replace the placeholders with the Web App config from Firebase Console.
-   Do not put Firebase Admin service-account credentials in this file. */
 const firebaseConfig = {
   apiKey: "AIzaSyCMvePll_304p4YFguN5gg_qFaQTMA50sM",
   authDomain: "smart-exhibit-security.firebaseapp.com",
@@ -119,63 +77,48 @@ const firebaseConfig = {
   messagingSenderId: "528561962471",
   appId: "1:528561962471:web:050e3d4d8c547b957b5142"
 };
-const $ = id => document.getElementById(id);
-let dbConnected=false, lastSignature="", events=[];
-function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
-function hw(id,label,kind){const e=$(id);e.textContent=label;e.className="hardware-state "+kind;}
-function addEvent(title,detail,kind="green",symbol="✓"){
-  const key=title+"|"+detail;if(events[0]&&events[0].key===key)return;
-  events.unshift({title,detail,kind,symbol,key,time:new Date().toLocaleTimeString()});events=events.slice(0,5);
-  $("activity").innerHTML=events.map(e=>`<div class="event"><div class="event-icon ${e.kind}">${e.symbol}</div><div class="event-copy"><b>${esc(e.title)}</b><small>${esc(e.detail)}</small></div><div class="event-time">${esc(e.time)}</div></div>`).join("");
+
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
 }
-function banner(status,distance,approaches){
- const badge=$("statusBadge");badge.className="pill";let title=status||"WAITING FOR SENSOR DATA",desc="Sensor telemetry received.",kind="green",symbol="✓";
- if(distance!==null&&distance<=16){title="PROXIMITY ALERT";desc=`Measured distance is ${distance.toFixed(1)} cm — inside the 16 cm safety boundary.`;kind="red";symbol="!";}
- else if(String(status).toUpperCase().includes("SUSPICIOUS")||approaches>=3){title="SUSPICIOUS — REPEATED APPROACHES";desc=`${approaches} close-zone entries in the rolling 30-second window.`;kind="amber";symbol="↻";}
- else if(String(status).toUpperCase().includes("CHECK")){kind="amber";symbol="!";}
- badge.classList.add(kind);badge.textContent=kind==="red"?"CRITICAL":kind==="amber"?"WARNING":"NORMAL";
- $("statusTitle").textContent=title;$("statusDescription").textContent=desc;$("bannerIcon").textContent=symbol;$("bannerIcon").style.color=kind==="red"?"#e94d60":kind==="amber"?"#d9941e":"#079e8f";$("sideStatus").textContent=title;
-}
-if(firebaseConfig.apiKey==="YOUR_API_KEY"||firebaseConfig.projectId==="YOUR_PROJECT_ID"){
- $("firebaseError").style.display="block";$("firebaseError").textContent="Setup required: edit firebaseConfig in public/index.html using your Firebase Web App config.";
- $("dbState").textContent="Configuration required";
-}else{
- try{
-  firebase.initializeApp(firebaseConfig);const database=firebase.database();
-  database.ref(".info/connected").on("value",snap=>{
-   dbConnected=snap.val()===true;$("dbDot").style.background=dbConnected?"#20bc87":"#f45b69";$("dbState").textContent=dbConnected?"Firebase connected":"Firebase disconnected";
-   hw("firebaseState",dbConnected?"CONNECTED":"OFFLINE",dbConnected?"":"off");$("firebaseDetail").textContent=dbConnected?"Realtime Database connection is active":"No active database connection";
-  });
-  database.ref("/exhibit/security/status").on("value",snap=>{
-   const d=snap.val();if(!d){$("colabDetail").textContent="No record at /exhibit/security/status";return;}
-   const now=Date.now()/1000,updated=Number(d.updated_at||0),fresh=updated>0&&now-updated<=8;
-   const dist=d.distance!==undefined&&Number.isFinite(Number(d.distance))?Number(d.distance):null;
-   const apps=Number(d.approaches||0),status=String(d.status||"NORMAL"),prediction=String(d.ml_prediction||"—"),prob=Math.max(0,Math.min(1,Number(d.suspicious_probability||0)));
-   const esp=fresh,valid=fresh&&dist!==null&&dist>=2&&dist<=250;
-   hw("espState",esp?"ONLINE":"STALE",esp?"":"off");$("espDetail").textContent=esp?"Fresh ESP32 telemetry received":"No fresh telemetry — check ESP32 upload loop";
-   hw("sensorState",valid?"READING":esp?"CHECK":"OFFLINE",valid?"":esp?"wait":"off");$("sensorDetail").textContent=valid?"Valid distance measurement received":"Sensor reading invalid or telemetry stale";
-   hw("colabState",fresh?"RUNNING":"STALE",fresh?"":"off");$("colabDetail").textContent=fresh?"Colab wrote status recently":"No status update in the last 8 seconds";
-   $("hwOverall").textContent=esp&&dbConnected?"SYSTEM ONLINE":"CHECK CONNECTION";$("hwOverall").className="pill "+(esp&&dbConnected?"green":"amber");
-   $("distance").textContent=dist===null?"—":dist.toFixed(1);$("distance2").textContent=dist===null?"—":dist.toFixed(1);
-   $("speed").textContent=Number.isFinite(Number(d.speed))?Number(d.speed).toFixed(1):"—";$("timeNear").textContent=Number.isFinite(Number(d.time_near))?Number(d.time_near).toFixed(1):"—";
-   $("approaches").textContent=apps;$("minDistance").textContent=Number.isFinite(Number(d.min_distance))?Number(d.min_distance).toFixed(1):"—";$("prediction").textContent=prediction.toUpperCase();$("modelLabel").textContent=prediction.toUpperCase();
-   $("probText").textContent=(prob*100).toFixed(1)+"%";$("scoreRing").style.setProperty("--score",(prob*360)+"deg");$("modelHeading").textContent=prob>=.7?"Elevated suspicious score":prob>=.4?"Moderate suspicious score":"Low suspicious score";$("modelDescription").textContent="Model output only; intent cannot be determined from distance alone.";
-   $("distanceMeter").style.width=(dist===null?0:Math.max(0,Math.min(100,dist/250*100)))+"%";
-   $("zone").textContent=dist===null?"Unknown":dist<=16?"CRITICAL":dist<50?"NEAR":"CLEAR";
-   banner(status,dist,apps);
-   const person=$("human");
-   if(dist!==null&&dist<=250){const r=20+Math.min(dist,250)/250*75;person.style.left=`calc(50% + ${r}px)`;person.style.top=`calc(50% - ${r*.48}px)`;person.style.opacity="1";}else person.style.opacity="0";
-   $("radarState").textContent=dist!==null&&dist<=16?"CRITICAL ZONE":dist!==null&&dist<50?"NEAR ZONE":"CLEAR ZONE";
-   const time=updated?new Date(updated*1000).toLocaleTimeString():"—";$("lastUpdated").textContent="◷  Updated "+time;$("footerTime").textContent="Updated "+time;$("eventTime").textContent="LAST SIGNAL "+time;
-   const signature=[status,dist,apps].join("|");
-   if(signature!==lastSignature){lastSignature=signature;
-    if(dist!==null&&dist<=16){addEvent("Proximity alert",`Distance ${dist.toFixed(1)} cm — boundary crossed`,"red","!");$("navAlert").textContent="!";}
-    else if(apps>=3){addEvent("Repeated approaches",`${apps} entries in 30 seconds`,"amber","↻");$("navAlert").textContent=String(apps);}
-    else if(status!=="NORMAL"){addEvent(status,`Distance ${dist===null?"—":dist.toFixed(1)} cm`,"amber","!");}
-    else {addEvent("Sensor reading received",`Distance ${dist===null?"—":dist.toFixed(1)} cm`,"green","✓");$("navAlert").textContent="0";}
-   }
-  },err=>{$("firebaseError").style.display="block";$("firebaseError").textContent="Realtime Database error: "+err.message+". Check database URL and security rules.";});
- }catch(e){$("firebaseError").style.display="block";$("firebaseError").textContent="Firebase initialization failed: "+e.message;}
-}
+
+const auth = firebase.auth();
+const form = document.getElementById("loginForm");
+const button = document.getElementById("loginButton");
+const message = document.getElementById("message");
+
+auth.onAuthStateChanged(user => {
+  if (user) {
+    window.location.replace("dashboard.html");
+  }
+});
+
+form.addEventListener("submit", async function(event) {
+  event.preventDefault();
+  button.disabled = true;
+  message.textContent = "Signing in...";
+
+  try {
+    await auth.signInWithEmailAndPassword(
+      document.getElementById("email").value.trim(),
+      document.getElementById("password").value
+    );
+
+    window.location.replace("dashboard.html");
+  } catch (error) {
+    const messages = {
+      "auth/invalid-credential": "Incorrect email or password.",
+      "auth/user-not-found": "Account not found.",
+      "auth/wrong-password": "Incorrect email or password.",
+      "auth/invalid-email": "Please enter a valid email.",
+      "auth/too-many-requests": "Too many attempts. Try again later.",
+      "auth/network-request-failed": "Check your internet connection."
+    };
+
+    message.textContent = messages[error.code] || error.message;
+    button.disabled = false;
+  }
+});
 </script>
-</body></html>
+</body>
+</html>
